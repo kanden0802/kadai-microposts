@@ -29,7 +29,6 @@
                 {{-- フォロワー一覧タブ --}}
                 <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
             </ul>
-@extends('layouts.app')
 
 @section('content')
     <div class="row">
