@@ -21,6 +21,19 @@
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
+                        
+                        @if (Auth::user()->is_favorite($micropost->id))
+                            {{-- お気に入り削除ボタンのフォーム --}}
+                            {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
+                                {!! Form::submit('UnFavorite', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!}
+                        @else 
+                            {{-- お気に入り登録ボタンのフォーム --}}
+                            {!! Form::open(['route' => ['favorites.favorite', $micropost->id], 'method' => 'post']) !!}
+                                {!! Form::submit('Favorite', ['class' => 'btn btn-primary btn-sm']) !!}
+                            {!! Form::close() !!}
+                            
+                        @endif
                     </div>
                 </div>
             </li>
